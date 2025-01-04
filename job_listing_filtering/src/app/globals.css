@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background: hsl(180, 52%, 96%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+

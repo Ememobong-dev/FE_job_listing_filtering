@@ -33,12 +33,20 @@ const JobCard: React.FC<JobCardProps> = ({
      tools,
  }) => {
     return (
-        <div className={`bg-white ${titleTagFeature && "border-l-8 border-l-darkCyan "} cursor-pointer py-5 lg:px-14 w-full rounded-br-xl rounded-tr-xl my-3 shadow-xl flex items-center justify-between`} >
-            <div className={"flex gap-5 items-center"}>
-                <span>
-                    <Image className={"w-28 h-28 rounded-full"} width={112} height={112} src={jobLogo} alt={"job logo"} />
+        <div className={`bg-white ${titleTagFeature && "border-l-8 border-l-darkCyan "} cursor-pointer py-5 lg:px-14 px-5 w-full rounded-br-xl rounded-tr-xl my-3 shadow-xl  md:flex items-center justify-between flex-flex-col  relative `} >
+
+            {/* MOBILE IMAGE RESPONSIVENESS */}
+            <span className=' md:hidden block'>
+                <Image className={"md:w-28 md:h-28 w-10 h-10 absolute -top-4  rounded-full"} width={112} height={112} src={jobLogo} alt={"job logo"} />
+            </span>
+
+            <div className={" md:flex gap-5 items-center relative  "}>
+                {/* DESKTOP IMAGE  */}
+                <span className='hidden md:block'>
+                    <Image className={"md:w-28 md:h-28 w-10 h-10 rounded-full"} width={112} height={112} src={jobLogo} alt={"job logo"} />
                 </span>
-                <div className={"flex flex-col gap-y-2"}>
+                
+                <div className={"flex flex-col mt-5 gap-y-2 relative "}>
                     <div className={"flex gap-5 items-center"}>
                         <p className={"text-darkCyan font-bold"} >{jobCompany}</p>
                         {
@@ -51,7 +59,7 @@ const JobCard: React.FC<JobCardProps> = ({
                     <div>
                         <p className={'font-bold hover:text-darkCyan text-lg'}> {jobPosition} </p>
                     </div>
-                    <ul className={"flex gap-5 items-center  text-ashDarkGrayishCyan text-sm"}>
+                    <ul className={"flex gap-5 items-center font-bold  text-ashDarkGrayishCyan text-sm"}>
                         <li>{postedAt}</li>
                         <span >•</span>
                         <li>{contract}</li>
@@ -60,7 +68,9 @@ const JobCard: React.FC<JobCardProps> = ({
                     </ul>
                 </div>
             </div>
-            <div className={"flex gap-5 items-center  "}>
+            <hr className='my-5 border border-ashDarkGrayishCyan'  />
+
+            <div className={"flex flex-wrap gap-5 items-center relative  "}>
                 <p className={'px-3 py-2 text-[13px] font-bold hover:text-white hover:bg-darkCyan rounded-lg text-darkCyan  bg-lightGrayishCyan'}> {jobRole} </p>
                 <p className={'px-3 py-2 text-[13px] font-bold hover:text-white hover:bg-darkCyan rounded-lg text-darkCyan  bg-lightGrayishCyan'}> {jobLevel} </p>
                 {
